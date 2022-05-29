@@ -1,5 +1,5 @@
 # Introduction 
-General repository standardization template for docker project types. Compatible for agile processes.
+Database modeling, normalization, fragmentation, testing data service application for postgresql
 
 🔖: releasing / 0.1.0
 
