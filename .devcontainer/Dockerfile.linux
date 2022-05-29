@@ -2,7 +2,7 @@
 #  * @file dockerfile
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief Docker is the tool that provides operating system level virtualization, also known as "containerization".
-#  * @version 0.1
+#  * @version 0.1.0
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
@@ -17,7 +17,7 @@ LABEL maintainer="Azmi ŞAHİN <azmisahin@outlook.com>"
 
 # product arguments
 ARG ENV="development"
-ARG NAME="data-service"
+ARG APP_NAME="data-service"
 
 # default arguments for build
 ARG WORK_DIR="/data-service"
@@ -28,7 +28,7 @@ ARG DIST_DIR="dist"
 
 # product environment
 ENV ENV=${ENV}
-ENV NAME=${NAME}
+ENV APP_NAME=${APP_NAME}
 
 # default envionment for build
 ENV WORK_DIR=${WORK_DIR}
