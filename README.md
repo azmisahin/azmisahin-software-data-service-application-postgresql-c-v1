@@ -1,7 +1,7 @@
 # Introduction 
 Database modeling, normalization, fragmentation, testing data service application for postgresql
 
-🔖: releasing / 0.1.0
+🔖: releasing / 0.1.1
 
 # Getting Started
 TO DO: Things to do when getting started on this project.
