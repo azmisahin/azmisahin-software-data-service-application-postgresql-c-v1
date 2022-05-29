@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Account server",
+            "Group": "Development server group",
+            "Port": 5432,
+            "Username": "db_service",
+            "Host": "data-service",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "account"
+        }
+    }
+}

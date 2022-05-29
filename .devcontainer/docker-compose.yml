@@ -2,14 +2,19 @@
 #  * @file docker-compose.yml
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief running multi-container Docker applications.
-#  * @version 0.1.0
+#  * @version 0.1.1
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
 #  */
-version: '3.8'
+version: '3.9'
 services:
+
+  # application
   application:
+
+    container_name: ${APP_NAME}-${ENV}-${CONTAINER}
+
     build:
       context: .
       dockerfile: Dockerfile.${CONTAINER}
@@ -19,20 +24,20 @@ services:
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16-bullseye
         # build
-        NAME: ${NAME}
+        APP_NAME: ${APP_NAME}
         WORK_DIR: ${WORK_DIR}
         BUILD_DIR: ${BUILD_DIR}
         DIST_DIR: ${DIST_DIR}
         # application
       labels:
-        com.azmisahin.description: ${NAME}
+        com.azmisahin.description: ${APP_NAME}
         com.azmisahin.department: "DEVOPS"
       # stage
       target: ${ENV}
-    container_name: ${NAME}-${ENV}-${CONTAINER}
+
     environment:
       # build
-      NAME: ${NAME}
+      APP_NAME: ${APP_NAME}
       WORK_DIR: ${WORK_DIR}
       BUILD_DIR: ${BUILD_DIR}
       DIST_DIR: ${DIST_DIR}
@@ -51,3 +56,60 @@ services:
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+    # data service application
+
+    # data service
+  data-service:
+    container_name: "${DATABASE_SERVICE_NAME}"
+    image: postgres:${DATABASE_SERVICE_VERSION}
+    ports:
+      - "${DATABASE_SERVICE_HOST_PORT}:${DATABASE_SERVICE_APP_PORT}"
+    volumes:
+      - "../src/data/service:/docker-entrypoint-initdb.d"
+    environment:
+      # product
+      ENV: "${ENV}"
+      APP_NAME: "${APP_NAME}"
+
+      # postgres sql
+      POSTGRES_USER: "${DATABASE_SERVICE_USER}"
+      POSTGRES_PASSWORD: "${DATABASE_SERVICE_PASSWORD}"
+      POSTGRES_DB: "${DATABASE_SERVICE_CATALOG}"
+
+      # data service
+      DATABASE_SERVICE_VENDOR: "${DATABASE_SERVICE_VENDOR}"
+      DATABASE_SERVICE_VERSION: "${DATABASE_SERVICE_VERSION}"
+      DATABASE_SERVICE_NAME: "${DATABASE_SERVICE_NAME}"
+      DATABASE_SERVICE_DOMAIN: "${DATABASE_SERVICE_DOMAIN}"
+      DATABASE_SERVICE_HOST_PORT: "${DATABASE_SERVICE_HOST_PORT}"
+      DATABASE_SERVICE_APP_PORT: "${DATABASE_SERVICE_APP_PORT}"
+      DATABASE_SERVICE_USER: "${DATABASE_SERVICE_USER}"
+      DATABASE_SERVICE_PASSWORD: "${DATABASE_SERVICE_PASSWORD}"
+      DATABASE_SERVICE_CATALOG: "${DATABASE_SERVICE_CATALOG}"
+
+      # data service ui
+      DATABASE_SERVICE_UI_HOST_PORT: "${DATABASE_SERVICE_UI_HOST_PORT}"
+      PGADMIN_DEFAULT_EMAIL: "${AUTHORIZED_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "${AUTHORIZED_PASSWORD}"
+
+  # data service ui application
+  data-service-ui:
+    container_name: "${DATABASE_SERVICE_UI_NAME}"
+    image: dpage/pgadmin4
+    ports:
+      - "${DATABASE_SERVICE_UI_HOST_PORT}:${DATABASE_SERVICE_UI_APP_PORT}"
+    volumes:
+      # This ensures that the connection information is preloaded into the pgAdmin instance in the container.
+      - "../src/data/service-ui/servers.json:/pgadmin4/servers.json"
+    environment:
+      # product
+      ENV: "${ENV}"
+
+      # data service ui
+      PGADMIN_DEFAULT_EMAIL: "${AUTHORIZED_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "${AUTHORIZED_PASSWORD}"
+    links:
+      - ${APP_NAME}:${APP_NAME}
+    depends_on:
+      - ${APP_NAME}
