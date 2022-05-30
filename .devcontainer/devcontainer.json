@@ -18,12 +18,12 @@
 	"settings": {},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-azuretools.vscode-docker",
 		"Serhioromano.vscode-gitflow",
 		"mhutchie.git-graph",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
-		"hediet.vscode-drawio"
+		"hediet.vscode-drawio",
+		"ms-azuretools.vscode-docker"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This can be used to network with other containers or with the host.

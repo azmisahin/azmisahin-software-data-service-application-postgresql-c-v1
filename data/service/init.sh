@@ -27,6 +27,11 @@ echo data service initialized
 echo ==================================================
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     \ir /docker-entrypoint-initdb.d/init.pgsql;
+EOSQL
+echo
+echo data service migrations
+echo ==================================================
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     \ir /docker-entrypoint-initdb.d/init.migrations.pgsql;
 EOSQL
 echo

@@ -1,3 +1,3 @@
 -- schemas
 -- include relative
-\echo "migrations"
+\ir accounts/init.pgsql;
