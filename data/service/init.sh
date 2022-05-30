@@ -4,7 +4,7 @@
 #  * @file init.sql
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief database modeling, normalization, fragmentation, testing.
-#  * @version 0.1.3
+#  * @version 0.1.4
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
