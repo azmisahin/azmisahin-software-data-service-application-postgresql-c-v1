@@ -2,7 +2,7 @@
  * @file init.test.sql
  * @author Azmi ŞAHİN (azmisahin@outlook.com)
  * @brief database modeling, normalization, fragmentation, testing data service application for postgresql.
- * @version 0.1.2
+ * @version 0.1.3
  * @date 2022-01-01
  *
  * @copyright Copyright (c) 2022
