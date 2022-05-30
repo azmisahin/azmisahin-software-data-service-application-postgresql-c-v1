@@ -1,5 +1,5 @@
 /**
- * @file init.sql
+ * @file init.production.sql
  * @author Azmi ŞAHİN (azmisahin@outlook.com)
  * @brief database modeling, normalization, fragmentation, testing data service application for postgresql.
  * @version 0.1.4
@@ -19,13 +19,13 @@
 -- ref: https://www.postgresql.org/docs/current/sql-createextension.html
 -- ref: https://www.postgresql.org/docs/current/uuid-ossp.html
 -- ref: https://www.postgresql.org/docs/current/datatype-uuid.html
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp" schema public;
+-- CREATE EXTENSION IF NOT EXISTS "uuid-ossp" schema public;
 
 -- start a transaction block
 -- BEGIN initiates a transaction block, that is,
 -- all statements after a BEGIN command will be executed in a single transaction until an explicit COMMIT or ROLLBACK is given
 BEGIN;
 -- include relative
-\ir schemas/init.pgsql;
+\ir schemas.production/init.pgsql;
 
 COMMIT;

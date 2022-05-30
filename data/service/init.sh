@@ -4,7 +4,7 @@
 #  * @file init.sql
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief database modeling, normalization, fragmentation, testing.
-#  * @version 0.1.3
+#  * @version 0.1.4
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
@@ -27,6 +27,12 @@ echo data service initialized
 echo ==================================================
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     \ir /docker-entrypoint-initdb.d/init.pgsql;
+EOSQL
+echo
+echo data service migrations
+echo ==================================================
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    \ir /docker-entrypoint-initdb.d/init.migrations.pgsql;
 EOSQL
 echo
 echo data service ${ENV}
@@ -64,6 +70,6 @@ fi
 echo
 if [ "${ENV}" = "production" ]; then
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
-    \ir /docker-entrypoint-initdb.d/init.migrations.pgsql;
+    \ir /docker-entrypoint-initdb.d/init.production.pgsql;
 EOSQL
 fi
