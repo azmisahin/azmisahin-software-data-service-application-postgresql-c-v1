@@ -1,3 +1,3 @@
 -- schemas
 -- include relative
-\echo "test"
+\ir accounts/init.pgsql;
