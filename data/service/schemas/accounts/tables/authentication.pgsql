@@ -27,6 +27,6 @@ CREATE TABLE "authentications" (
     -- ex: 2021-02-07 18:04:57.3100000 +00:00
     -- ex: 2021-02-07T18:04:57.3100000Z
     -- when the record was last updated.
-    "modified_date" timestamp with time zone NOT NULL
+    "modified_date" timestamp with time zone NULL
     
 );
