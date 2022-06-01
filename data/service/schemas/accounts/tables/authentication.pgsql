@@ -15,7 +15,7 @@ CREATE TABLE "authentications" (
     "provider" varchar(16) NOT NULL,
 
     -- key assigned by the provider as a result of authorization.
-    "provider_id" varchar(128) NOT NULL,
+    "provider_key" varchar(128) NOT NULL,
 
     -- yyyy-MM-ddTHH:mm:ss.fffffffZ ıso 8601
     -- ex: 2021-02-07 18:04:57.3100000 +00:00

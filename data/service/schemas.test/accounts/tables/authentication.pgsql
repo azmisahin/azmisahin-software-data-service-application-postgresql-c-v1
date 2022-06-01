@@ -6,11 +6,17 @@ INSERT INTO "authentications" (
 
     -- Identity Increment
     -- int NOT NULL
-    "id",
+    -- CREATE SEQUENCE "authentications_id_sq"
+    -- ADD CONSTRAINT "authentications_id_pk" PRIMARY KEY ("id")
+    -- SET DEFAULT nextval('authentications_id_sq')
+    -- CREATE INDEX "authentications_id_ix"
+    -- "id",
 
     -- All table businues identification
     -- "accounts"."account_id"
     -- uuid NOT NULL
+    -- ADD CONSTRAINT "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    -- CREATE INDEX "authentications_account_id_ix"
     "account_id",
 
     -- provider used for authentication and authorization between multiple services or servers.
@@ -19,309 +25,346 @@ INSERT INTO "authentications" (
 
     -- key assigned by the provider as a result of authorization.
     -- varchar(128) NOT NULL
-    "provider_id",
+    "provider_key"
 
     -- yyyy-MM-ddTHH:mm:ss.fffffffZ ıso 8601
     -- ex: 2021-02-07 18:04:57.3100000 +00:00
     -- ex: 2021-02-07T18:04:57.3100000Z
     -- when the record was last created.
     -- timestamp with time zone NOT NULL
-    "created_date",
+    -- SET DEFAULT timezone('UTC' :: text, now())
+    -- "created_date",
 
     -- yyyy-MM-ddTHH:mm:ss.fffffffZ ıso 8601
     -- ex: 2021-02-07 18:04:57.3100000 +00:00
     -- ex: 2021-02-07T18:04:57.3100000Z
     -- when the record was last updated.
     -- timestamp with time zone NULL
-    "modified_date"
+    -- "modified_date"
     
 )
 VALUES
 (
-    1,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --1,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Amazon',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    2,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --2,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Apple',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    2,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --3,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Auth0',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    3,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --4,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Azure',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    4,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --5,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Bitbucket',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    6,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --6,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'DigitalOcean',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    7,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --7,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Discord',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    8,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --8,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Dropbox',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    9,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --9,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Facebook',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    10,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --10,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'GitHub',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    11,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --11,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Gitlab',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    12,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --12,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Google',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    13,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --13,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Heroku',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    14,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --14,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Instagram',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    15,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --15,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Facebook',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    16,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --16,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Linkedin',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    17,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --17,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Mailru',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    18,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --18,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Okta',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    19,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --19,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'OneDrive',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    20,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --20,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'OpenID',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    21,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --21,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Paypal',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    22,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --22,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'SalesForce',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    23,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --23,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Shopify',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    24,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --24,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Slack',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    25,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --25,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Soundcloud',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    26,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --26,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Spotify',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    27,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --27,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Steam',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    28,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --28,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Stripe',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    29,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --29,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'TikTok',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    30,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --30,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Tumblr',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    31,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --31,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Twitch',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    32,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --32,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Twitter',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    33,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --33,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'VK',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    34,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --34,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Yahoo',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    35,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --35,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Yandex',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 ),
 (
-    36,
-    'a3a9d613-9c9c-4b36-b736-0c153726bcaf',
+    --36,
+    -- "authentications_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id")
+    '941c2241-3d8f-4eaa-b43e-3e14456eb8fd',
     'Zoom',
-    '?',
-    timezone('UTC' :: text, now()),
-    null
+    '?'
+    --timezone('UTC' :: text, now()),
+    --null
 );
