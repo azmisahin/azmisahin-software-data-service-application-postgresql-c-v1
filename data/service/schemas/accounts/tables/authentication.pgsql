@@ -15,7 +15,7 @@ CREATE TABLE "authentications" (
     "provider" varchar(16) NOT NULL,
 
     -- key assigned by the provider as a result of authorization.
-    "provider_id" varchar(128) NOT NULL,
+    "provider_key" varchar(128) NOT NULL,
 
     -- yyyy-MM-ddTHH:mm:ss.fffffffZ ıso 8601
     -- ex: 2021-02-07 18:04:57.3100000 +00:00
@@ -30,3 +30,9 @@ CREATE TABLE "authentications" (
     "modified_date" timestamp with time zone NULL
     
 );
+
+COMMENT ON TABLE "authentications" IS 'Keeps track of users logged in by authorization providers.';
+COMMENT ON COLUMN "authentications"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "authentications"."account_id" IS 'All table businues identification';
+COMMENT ON COLUMN "authentications"."provider" IS 'provider used for authentication and authorization between multiple services or servers.';
+COMMENT ON COLUMN "authentications"."provider_key" IS 'key assigned by the provider as a result of authorization.';

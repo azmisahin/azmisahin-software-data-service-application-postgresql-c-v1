@@ -7,3 +7,5 @@ SET
 
 -- include relative
 \ir tables/init.pgsql;
+
+\ir views/init.pgsql;

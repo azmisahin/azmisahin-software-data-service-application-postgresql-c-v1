@@ -31,3 +31,8 @@ CREATE TABLE "emails" (
     "modified_date" timestamp with time zone NULL
 
 );
+
+COMMENT ON TABLE "emails" IS 'Keeps track of users email information.';
+COMMENT ON COLUMN "emails"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "emails"."account_id" IS 'Identity Increment';
+COMMENT ON COLUMN "emails"."email_address" IS 'There is a length limit on email addresses';

@@ -4,18 +4,26 @@
 -- The "id" definition should not be used for matching.
 -- Each user must have a unique "account id".
 
-    
+-- The cahnge order should be applied in the following order.
+-- SEQUENCE, PRIMARY KEY, FOREIGN KEY, DEFAULT VALUE, INDEX
+-- name define should be like tablename_fieldname_sq
+
 -- Identity Increment
--- ALTER TABLE "users" ALTER COLUMN "id" ;
+CREATE SEQUENCE "users_id_sq" AS integer INCREMENT BY 1 MINVALUE 1 START WITH 1 ;
+ALTER TABLE "users" ALTER COLUMN "id" SET DEFAULT nextval('users_id_sq') ;
+CREATE INDEX "users_id_ix" ON "users" ("id" DESC) ;
 
 -- All table businues identification
 -- default public.uuid_generate_v4 ()
--- ALTER TABLE "users" ALTER COLUMN "account_id" ;
+ALTER TABLE "users" ADD CONSTRAINT "users_account_id_pk" PRIMARY KEY ("account_id") ;
+ALTER TABLE "users" ALTER COLUMN "account_id" SET DEFAULT public.uuid_generate_v4 () ;
+CREATE INDEX "users_account_id_ix" ON "users" ("account_id" DESC) ;
 
 -- 'true' Blocked
 -- 'false' free
 -- It must be set to true to lock the user account.
-ALTER TABLE "users" ALTER COLUMN "lockout" SET DEFAULT 'false' ;
+-- It should remain locked until the user's registration is complete.
+ALTER TABLE "users" ALTER COLUMN "lockout" SET DEFAULT 'true' ;
 
 -- The number of unsuccessful attempts to access the account.
 ALTER TABLE "users" ALTER COLUMN "access_failed_count" SET DEFAULT 0;

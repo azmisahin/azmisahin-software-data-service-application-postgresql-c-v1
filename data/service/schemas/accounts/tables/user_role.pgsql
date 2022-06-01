@@ -22,3 +22,7 @@ CREATE TABLE "user_roles" (
     -- when the record was last updated.
     "modified_date" timestamp with time zone NULL
 );
+
+COMMENT ON TABLE "user_roles" IS 'Keeps users roles matched.';
+COMMENT ON COLUMN "user_roles"."account_id" IS 'Bussnies ID';
+COMMENT ON COLUMN "user_roles"."role_id" IS 'Role ID';
