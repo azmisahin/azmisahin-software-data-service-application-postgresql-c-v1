@@ -1,7 +1,7 @@
 # Introduction 
 Database modeling, normalization, fragmentation, testing data service application for postgresql
 
-🔖: releasing / 0.1.4
+🔖: releasing / 0.1.5
 
 ## accounts entity relationship diagram 
 ![accounts-entity-relationship-diagram](docs/media/accounts-entity-relationship-diagram.png)
