@@ -31,3 +31,9 @@ CREATE TABLE "persons" (
     "modified_date" timestamp with time zone NULL
     
 );
+
+COMMENT ON TABLE "persons" IS 'Keeps the personal information of the user account.';
+COMMENT ON COLUMN "persons"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "persons"."account_id" IS 'All table businues identification';
+COMMENT ON COLUMN "persons"."first_name" IS 'First Name';
+COMMENT ON COLUMN "persons"."last_name" IS 'Last Name';

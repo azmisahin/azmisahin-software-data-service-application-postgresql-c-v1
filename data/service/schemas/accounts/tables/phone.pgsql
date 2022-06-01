@@ -37,3 +37,10 @@ CREATE TABLE "phones" (
     "modified_date" timestamp with time zone NULL
 
 );
+
+COMMENT ON TABLE "phones" IS 'Keeps track of users phone information.';
+COMMENT ON COLUMN "phones"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "phones"."account_id" IS 'All table businues identification';
+COMMENT ON COLUMN "phones"."country_phone_code" IS 'E.123 is an international standard by the standardization union';
+COMMENT ON COLUMN "phones"."operator_code" IS 'operator code';
+COMMENT ON COLUMN "phones"."phone_number" IS 'Telephone number, E.123 international notation';

@@ -36,3 +36,10 @@ CREATE TABLE "users" (
     "modified_date" timestamp with time zone NULL
 
 );
+
+COMMENT ON TABLE "users" IS 'Aims to track users with a unique business ID.';
+COMMENT ON COLUMN "users"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "users"."account_id" IS 'All table businues identification';
+COMMENT ON COLUMN "users"."lockout" IS 'It must be set to true to lock the user account.';
+COMMENT ON COLUMN "users"."access_failed_count" IS 'The number of unsuccessful attempts to access the account.';
+COMMENT ON COLUMN "users"."lockout_end_date" IS 'The date when a locked user account will become active.';

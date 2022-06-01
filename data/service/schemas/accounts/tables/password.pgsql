@@ -34,3 +34,9 @@ CREATE TABLE "passwords" (
     "modified_date" timestamp with time zone NULL
     
 );
+
+COMMENT ON TABLE "passwords" IS 'Keeps track of users password information.';
+COMMENT ON COLUMN "passwords"."id" IS 'Identity Increment';
+COMMENT ON COLUMN "passwords"."account_id" IS 'All table businues identification';
+COMMENT ON COLUMN "passwords"."password_hash" IS 'Password hash, a password definition through a hashing algorithm (bcrypt, SHA, etc.)';
+COMMENT ON COLUMN "passwords"."security_stamp" IS 'he security timestamp is used to track changes made to the user profile.';
