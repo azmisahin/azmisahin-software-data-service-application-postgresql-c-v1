@@ -33,7 +33,7 @@ INSERT INTO "phones" (
     -- phone number
     -- Telephone number, E.123 international notation	+999 555 [123 4567]
 	-- int NOT NULL
-    "phone_number",
+    "phone_number"
 
     -- yyyy-MM-ddTHH:mm:ss.fffffffZ ıso 8601
     -- ex: 2021-02-07 18:04:57.3100000 +00:00
