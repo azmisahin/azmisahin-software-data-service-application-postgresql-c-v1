@@ -3,13 +3,20 @@
 -- Keeps track of users' phone information.
 -- A user can have more than one phone record.
 
+-- The cahnge order should be applied in the following order.
+-- SEQUENCE, PRIMARY KEY, FOREIGN KEY, DEFAULT VALUE, INDEX
+-- name define should be like tablename_fieldname_sq
 
 -- Identity Increment
--- ALTER TABLE "phones" ALTER COLUMN "id" ;
+CREATE SEQUENCE "phones_id_sq" AS integer INCREMENT BY 1 MINVALUE 1 START WITH 1 ;
+ALTER TABLE "phones" ADD CONSTRAINT "phones_id_pk" PRIMARY KEY ("id") ;
+ALTER TABLE "phones" ALTER COLUMN "id" SET DEFAULT nextval('phones_id_sq') ;
+CREATE INDEX "phones_id_ix" ON "phones" ("id" DESC) ;
 
 -- All table businues identification
 -- "accounts"."account_id"
--- ALTER TABLE "phones" ALTER COLUMN "account_id" ;
+ALTER TABLE "phones" ADD CONSTRAINT "phones_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id") ;
+CREATE INDEX "phones_account_id_ix" ON "phones" ("account_id" DESC) ;
 
 -- Country Phone Code [ to 32,767]
 -- E.123 is an international standard by the standardization union

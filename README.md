@@ -3,6 +3,9 @@ Database modeling, normalization, fragmentation, testing data service applicatio
 
 🔖: releasing / 0.1.4
 
+## accounts entity relationship diagram 
+![accounts-entity-relationship-diagram](docs/media/accounts-entity-relationship-diagram.png)
+
 # Getting Started
 TO DO: Things to do when getting started on this project.
 - [Documentation](docs/README.md).

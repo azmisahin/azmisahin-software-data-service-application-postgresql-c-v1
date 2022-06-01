@@ -3,13 +3,21 @@
 -- Keeps track of users' email information.
 -- A user can have more than one email record.
 
+-- The cahnge order should be applied in the following order.
+-- SEQUENCE, PRIMARY KEY, FOREIGN KEY, DEFAULT VALUE, INDEX
+-- name define should be like tablename_fieldname_sq
 
 -- Identity Increment
--- ALTER TABLE "emails" ALTER COLUMN "id" ;
+CREATE SEQUENCE "emails_id_sq" AS integer INCREMENT BY 1 MINVALUE 1 START WITH 1 ;
+ALTER TABLE "emails" ADD CONSTRAINT "emails_id_pk" PRIMARY KEY ("id") ;
+ALTER TABLE "emails" ALTER COLUMN "id" SET DEFAULT nextval('emails_id_sq') ;
+CREATE INDEX "emails_id_ix" ON "emails" ("id" DESC) ;
 
 -- All table businues identification
--- "accounts"."account_id"
--- ALTER TABLE "emails" ALTER COLUMN "account_id" ;
+-- "emails"."account_id"
+ALTER TABLE "emails" ADD CONSTRAINT "emails_account_id_fk" FOREIGN KEY ("account_id") REFERENCES "users"("account_id") ;
+CREATE INDEX "emails_account_id_ix" ON "emails" ("account_id" DESC) ;
+
 
 -- Valid email address
 -- There is a length limit on email addresses.
