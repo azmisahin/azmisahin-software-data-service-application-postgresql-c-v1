@@ -12,8 +12,8 @@ CREATE TABLE "users" (
     -- default public.uuid_generate_v4 ()
     "account_id" uuid NOT NULL,
 
-    -- 1 Blocked
-    -- 0 free
+    -- 'true' Blocked   ('1')
+    -- 'false' free     ('0')
     -- It must be set to true to lock the user account.
     "lockout" boolean NOT NULL,
 

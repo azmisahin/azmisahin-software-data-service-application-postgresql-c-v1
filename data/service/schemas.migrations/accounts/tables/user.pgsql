@@ -22,7 +22,8 @@ CREATE INDEX "users_account_id_ix" ON "users" ("account_id" DESC) ;
 -- 'true' Blocked
 -- 'false' free
 -- It must be set to true to lock the user account.
-ALTER TABLE "users" ALTER COLUMN "lockout" SET DEFAULT 'false' ;
+-- It should remain locked until the user's registration is complete.
+ALTER TABLE "users" ALTER COLUMN "lockout" SET DEFAULT 'true' ;
 
 -- The number of unsuccessful attempts to access the account.
 ALTER TABLE "users" ALTER COLUMN "access_failed_count" SET DEFAULT 0;
