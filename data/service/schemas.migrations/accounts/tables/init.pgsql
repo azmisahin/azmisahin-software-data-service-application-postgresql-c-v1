@@ -25,3 +25,6 @@
 
 -- Keeps users roles matched.
 \ir user_role.pgsql;
+
+-- Keeps users tokens matched.
+\ir token.pgsql;
